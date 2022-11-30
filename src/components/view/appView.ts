@@ -1,12 +1,6 @@
-import News, { View, NewsItem } from './news/news';
-import Sources, { Source } from './sources/sources';
-
-export interface ApiResponse {
-  articles?: NewsItem[];
-  sources?: Source[];
-}
-
-type DrawFunc = (data: ApiResponse) => void;
+import { ApiResponse, DrawFunc, NewsItem, Source } from '../../types/types';
+import News, { View } from './news/news';
+import Sources from './sources/sources';
 
 export interface IAppView {
   drawNews: DrawFunc;

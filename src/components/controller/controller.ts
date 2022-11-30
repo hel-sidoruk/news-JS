@@ -1,10 +1,5 @@
+import { cb, Controller } from '../../types/types';
 import AppLoader from './appLoader';
-import { cb } from './loader';
-
-export interface Controller {
-  getSources: (cb: cb) => void;
-  getNews: (e: Event, cb: cb) => void;
-}
 
 class AppController extends AppLoader implements Controller {
   getSources(callback: cb) {

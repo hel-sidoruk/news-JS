@@ -1,22 +1,5 @@
+import { cb, GetRespOptions, ILoader, Options } from '../../types/types';
 import { ApiResponse } from '../view/appView';
-
-type Options = {
-  apiKey?: string;
-  sources?: string;
-};
-export type cb = (data?: ApiResponse) => void;
-type GetRespOptions = {
-  endpoint: string;
-  options?: Options;
-};
-type Response = { status: number; ok: boolean; statusText: string };
-
-interface ILoader {
-  getResp: (obj: GetRespOptions, callback: cb) => void;
-  errorHandler: (res: Response) => Response;
-  makeUrl: (options: Options, endpoint: string) => string;
-  load: (method: string, endpoint: string, callback: cb, options: Options) => void;
-}
 
 class Loader implements ILoader {
   constructor(public baseLink: string, public options: Options) {}

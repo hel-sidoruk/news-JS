@@ -1,17 +1,5 @@
-import { Source } from '../sources/sources';
+import { HtmlEl, NewsItem } from '../../../types/types';
 import './news.css';
-
-export interface NewsItem {
-  title: string;
-  description: string;
-  source: Source;
-  publishedAt: string;
-  author: string;
-  url: string;
-  urlToImage: string;
-}
-
-type HtmlEl = HTMLElement | null;
 
 export interface View<T> {
   draw: (arr: T[]) => void;
