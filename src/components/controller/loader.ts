@@ -1,5 +1,4 @@
-import { cb, GetRespOptions, ILoader, Options } from '../../types/types';
-import { ApiResponse } from '../view/appView';
+import { cb, GetRespOptions, ILoader, Options, Response } from '../../types/types';
 
 class Loader implements ILoader {
   constructor(public baseLink: string, public options: Options) {}

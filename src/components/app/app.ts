@@ -1,4 +1,5 @@
-import AppController, { Controller } from '../controller/controller';
+import { Controller } from '../../types/types';
+import AppController from '../controller/controller';
 import { AppView, IAppView } from '../view/appView';
 
 class App {
@@ -11,10 +12,14 @@ class App {
   }
 
   start() {
-    document
-      .querySelector('.sources')
-      ?.addEventListener('click', (e) => this.controller.getNews(e, (data) => this.view.drawNews(data)));
-    this.controller.getSources((data) => this.view.drawSources(data));
+    document.querySelector('.sources')?.addEventListener('click', (e) =>
+      this.controller.getNews(e, (data) => {
+        if (data) this.view.drawNews(data);
+      })
+    );
+    this.controller.getSources((data) => {
+      if (data) this.view.drawSources(data);
+    });
   }
 }
 
