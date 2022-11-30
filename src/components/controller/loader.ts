@@ -2,10 +2,10 @@ type Options = {
   apiKey?: string;
   sources?: string;
 };
-type cb = () => void;
+export type cb = () => void;
 type GetRespOptions = {
   endpoint: string;
-  options: Options;
+  options?: Options;
 };
 type Response = { status: number; ok: boolean; statusText: string };
 
