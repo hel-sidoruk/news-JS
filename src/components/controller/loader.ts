@@ -1,8 +1,10 @@
+import { ApiResponse } from '../view/appView';
+
 type Options = {
   apiKey?: string;
   sources?: string;
 };
-export type cb = () => void;
+export type cb = (data?: ApiResponse) => void;
 type GetRespOptions = {
   endpoint: string;
   options?: Options;

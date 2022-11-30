@@ -1,7 +1,12 @@
 import AppLoader from './appLoader';
 import { cb } from './loader';
 
-class AppController extends AppLoader {
+export interface Controller {
+  getSources: (cb: cb) => void;
+  getNews: (e: Event, cb: cb) => void;
+}
+
+class AppController extends AppLoader implements Controller {
   getSources(callback: cb) {
     super.getResp(
       {

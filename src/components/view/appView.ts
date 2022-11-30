@@ -1,12 +1,19 @@
 import News, { View, NewsItem } from './news/news';
 import Sources, { Source } from './sources/sources';
 
-interface ApiResponse {
+export interface ApiResponse {
   articles?: NewsItem[];
   sources?: Source[];
 }
 
-export class AppView {
+type DrawFunc = (data: ApiResponse) => void;
+
+export interface IAppView {
+  drawNews: DrawFunc;
+  drawSources: DrawFunc;
+}
+
+export class AppView implements IAppView {
   private news: View<NewsItem>;
   private sources: View<Source>;
   constructor() {
