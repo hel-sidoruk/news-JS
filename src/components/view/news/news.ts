@@ -1,7 +1,7 @@
 import { Source } from '../sources/sources';
 import './news.css';
 
-interface NewsItem {
+export interface NewsItem {
   title: string;
   description: string;
   source: Source;
@@ -13,7 +13,11 @@ interface NewsItem {
 
 type HtmlEl = HTMLElement | null;
 
-class News {
+export interface View<T> {
+  draw: (arr: T[]) => void;
+}
+
+class News implements View<NewsItem> {
   draw(data: NewsItem[]): void {
     const news: NewsItem[] = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
 

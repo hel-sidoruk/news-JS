@@ -1,3 +1,4 @@
+import { View } from '../news/news';
 import './sources.css';
 
 export interface Source {
@@ -5,7 +6,7 @@ export interface Source {
   name: string;
 }
 
-class Sources {
+class Sources implements View<Source> {
   draw(data: Source[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
