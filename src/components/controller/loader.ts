@@ -27,7 +27,7 @@ class Loader implements ILoader {
     let url = `${this.baseLink}${endpoint}?`;
 
     Object.keys(urlOptions).forEach((key) => {
-      url += `${key}=${urlOptions[key]}&`;
+      url += `${key}=${urlOptions[key as keyof Options]}&`;
     });
 
     return url.slice(0, -1);
