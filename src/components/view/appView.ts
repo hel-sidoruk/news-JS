@@ -1,11 +1,6 @@
-import { ApiResponse, DrawFunc, NewsItem, Source } from '../../types/types';
+import { ApiResponse, IAppView, NewsItem, Source } from '../../types/types';
 import News, { View } from './news/news';
 import Sources from './sources/sources';
-
-export interface IAppView {
-  drawNews: DrawFunc;
-  drawSources: DrawFunc;
-}
 
 export class AppView implements IAppView {
   private news: View<NewsItem>;
@@ -15,12 +10,12 @@ export class AppView implements IAppView {
     this.sources = new Sources();
   }
 
-  drawNews(data: ApiResponse) {
+  drawNews(data?: ApiResponse) {
     const values = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }
 
-  drawSources(data: ApiResponse) {
+  drawSources(data?: ApiResponse) {
     const values = data?.sources ? data?.sources : [];
     this.sources.draw(values);
   }

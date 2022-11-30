@@ -1,6 +1,6 @@
-import { Controller } from '../../types/types';
+import { Controller, IAppView } from '../../types/types';
 import AppController from '../controller/controller';
-import { AppView, IAppView } from '../view/appView';
+import { AppView } from '../view/appView';
 
 class App {
   private controller: Controller;

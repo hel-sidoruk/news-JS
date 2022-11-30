@@ -1,4 +1,4 @@
-import { cb, GetRespOptions, ILoader, Options, Response } from '../../types/types';
+import { cb, GetRespOptions, ILoader, Options, Resp } from '../../types/types';
 
 class Loader implements ILoader {
   constructor(public baseLink: string, public options: Options) {}
@@ -12,7 +12,7 @@ class Loader implements ILoader {
     this.load('GET', endpoint, callback, options);
   }
 
-  errorHandler(res: Response): Response {
+  errorHandler(res: Resp): Resp {
     if (!res.ok) {
       if (res.status === 401 || res.status === 404)
         console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);

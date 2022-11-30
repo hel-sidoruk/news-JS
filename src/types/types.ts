@@ -3,17 +3,20 @@ export type Options = {
   apiKey?: string;
   sources?: string;
 };
-export type DrawFunc = (data: ApiResponse) => void;
 export type cb = (data?: ApiResponse) => void;
 export type GetRespOptions = {
   endpoint: string;
   options?: Options;
 };
-export type Response = { status: number; ok: boolean; statusText: string };
+export interface Resp extends Response {
+  status: number;
+  ok: boolean;
+  statusText: string;
+}
 
 export interface ILoader {
   getResp: (obj: GetRespOptions, callback: cb) => void;
-  errorHandler: (res: Response) => Response;
+  errorHandler: (res: Resp) => Resp;
   makeUrl: (options: Options, endpoint: string) => string;
   load: (method: string, endpoint: string, callback: cb, options: Options) => void;
 }
@@ -41,4 +44,9 @@ export interface Source {
 export interface ApiResponse {
   articles?: NewsItem[];
   sources?: Source[];
+}
+
+export interface IAppView {
+  drawNews: cb;
+  drawSources: cb;
 }
