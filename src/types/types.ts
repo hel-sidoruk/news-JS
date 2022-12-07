@@ -49,4 +49,5 @@ export interface ApiResponse {
 export interface IAppView {
   drawNews: cb;
   drawSources: cb;
+  filterSources: (s: string) => void;
 }

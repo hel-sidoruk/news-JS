@@ -6,7 +6,8 @@ class Sources implements View<Source> {
   draw(data: Source[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
-    const sourcesElement: HTMLDivElement | null = document.querySelector('.sources');
+    const sourcesContainer: HTMLDivElement | null = document.querySelector('.sources__container');
+    sourcesContainer?.querySelectorAll('.source__item').forEach((el) => el.remove());
 
     data.forEach((item: Source) => {
       if (sourceItemTemp) {
@@ -22,7 +23,7 @@ class Sources implements View<Source> {
       }
     });
 
-    sourcesElement?.append(fragment);
+    sourcesContainer?.append(fragment);
   }
 }
 

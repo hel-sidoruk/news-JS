@@ -12,11 +12,19 @@ class App {
   }
 
   start() {
+    let timer: ReturnType<typeof setTimeout>;
+    const searchInput = document.getElementById('search') as HTMLInputElement;
     document.querySelector('.sources')?.addEventListener('click', (e) =>
       this.controller.getNews(e, (data) => {
         if (data) this.view.drawNews(data);
       })
     );
+    searchInput.addEventListener('input', () => {
+      clearTimeout(timer);
+      timer = setTimeout(() => {
+        this.view.filterSources(searchInput.value.trim().toLowerCase());
+      }, 500);
+    });
     this.controller.getSources((data) => {
       if (data) this.view.drawSources(data);
     });

@@ -5,9 +5,12 @@ import Sources from './sources/sources';
 export class AppView implements IAppView {
   private news: View<NewsItem>;
   private sources: View<Source>;
+  private sourcesData: Source[] | [];
+
   constructor() {
     this.news = new News();
     this.sources = new Sources();
+    this.sourcesData = [];
   }
 
   drawNews(data?: ApiResponse) {
@@ -17,7 +20,15 @@ export class AppView implements IAppView {
 
   drawSources(data?: ApiResponse) {
     const values = data?.sources ? data?.sources : [];
+    this.sourcesData = values;
     this.sources.draw(values);
+  }
+
+  filterSources(query: string) {
+    if (this.sourcesData.length) {
+      const values = this.sourcesData.filter((el) => el.name.toLowerCase().includes(query));
+      this.sources.draw(values);
+    }
   }
 }
 
