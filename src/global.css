@@ -22,9 +22,9 @@ body {
   margin: 0 auto;
 }
 .header {
-    padding: 10px 30px;
+  padding: 10px 30px;
 }
-.header h1 {
+.header__title {
   text-align: center;
   font-size: 40px;
   font-weight: 800;
@@ -87,5 +87,68 @@ body {
 @media (max-width: 1600px) {
   .header {
     padding-left: 280px;
+  }
+}
+@media (max-width: 1024px) {
+  .header {
+    padding: 5px 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 730px;
+    margin: 0 auto;
+  }
+  .burger {
+    display: block;
+    width: 45px;
+    height: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s ease-in-out;
+    z-index: 300;
+  }
+  .burger__line {
+    height: 3px;
+    position: absolute;
+    width: 100%;
+    background-color: #fff;
+  }
+  .burger__line:first-child {
+    top: 0;
+  }
+  .burger__line:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .burger__line:last-child {
+    bottom: 0;
+  }
+  .burger--active {
+    transform: translateX(270px);
+  }
+  .burger--active .burger__line:nth-child(2) {
+    display: none;
+  }
+  .burger--active .burger__line:first-child {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  .burger--active .burger__line:last-child {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+}
+@media (max-width: 730px) {
+  .header {
+    width: 100%;
+  }
+}
+@media (max-width: 400px) {
+  .burger {
+    width: 35px;
+    height: 25px;
+  }
+  .header__title {
+    font-size: 32px;
   }
 }

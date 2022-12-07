@@ -14,6 +14,8 @@ class App {
   start() {
     let timer: ReturnType<typeof setTimeout>;
     const searchInput = document.getElementById('search') as HTMLInputElement;
+    const burger = document.querySelector('.burger') as HTMLElement;
+    const sources = document.querySelector('.sources') as HTMLElement;
 
     document.querySelector('.sources')?.addEventListener('click', (e) => {
       const element = e.target as HTMLElement;
@@ -23,8 +25,6 @@ class App {
       this.controller.getNews(e, (data) => data && this.view.drawNews(data));
     });
 
-    this.controller.getInitialNews((data) => data && this.view.drawNews(data));
-
     searchInput.addEventListener('input', () => {
       clearTimeout(timer);
       timer = setTimeout(() => {
@@ -32,8 +32,23 @@ class App {
       }, 500);
     });
 
-    this.controller.getSources((data) => {
-      if (data) this.view.drawSources(data);
+    burger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      sources.classList.add('sources--active');
+      burger.classList.add('burger--active');
+    });
+
+    document.body.addEventListener('click', () => {
+      burger.classList.remove('burger--active');
+      sources.classList.remove('sources--active');
+    });
+
+    this.controller.getSources((data) => data && this.view.drawSources(data));
+    this.controller.getInitialNews((data) => {
+      if (data) {
+        this.view.drawNews(data);
+        document.querySelector('.source__item')?.classList.add('source__item--active');
+      }
     });
   }
 }

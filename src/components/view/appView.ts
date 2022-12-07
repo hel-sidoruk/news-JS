@@ -14,7 +14,6 @@ export class AppView implements IAppView {
   }
 
   drawNews(data?: ApiResponse) {
-    console.log(data);
     const values = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }

@@ -125,6 +125,12 @@
     padding-left: 280px;
   }
 }
+@media (max-width: 1024px) {
+  .news {
+    padding: 0 15px;
+  }
+}
+
 @media (min-width: 640px) {
     .news__item {
         flex-direction: row;

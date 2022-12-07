@@ -81,3 +81,12 @@
     font-weight: 400;
     white-space: nowrap;
 }
+@media (max-width: 1024px) {
+  .sources {
+    transform: translateX(-100vw);
+    transition: all .3s ease-in-out;
+  }
+  .sources--active {
+    transform: translateX(0);
+  }
+}
