@@ -1,9 +1,11 @@
 .sources {
-  position: relative;
+  position: fixed;
+  top: 10vh;
+  left: 15px;
 }
 .sources__container {
   width: 250px;
-  height: 75vh;
+  height: 82vh;
   overflow: auto;
   font: 300 1em 'Fira Sans', sans-serif;
   display: flex;
@@ -13,7 +15,6 @@
 }
 .sources__container::-webkit-scrollbar {
   width: 6px;
-  box-shadow: -5px -5px 5px -5px rgba(#fff, 0.7) inset;
   border-radius: 8px;
 }
 .sources__container::-webkit-scrollbar-thumb {
@@ -63,7 +64,15 @@
     box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
     transform: translateY(-0.25em);
 }
-
+.source__item--active {
+  border-color: #3fcc59;
+  color: #69db7e;
+  box-shadow: 0 0.5em 0.5em -0.4em #3fcc59;
+  pointer-events: none;
+}
+.source__item--default {
+  border: none;
+}
 .source__item-name {
     font-weight: 400;
     white-space: nowrap;

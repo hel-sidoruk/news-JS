@@ -8,6 +8,13 @@ class Sources implements View<Source> {
     const sourceItemTemp: HTMLTemplateElement | null = document.querySelector('#sourceItemTemp');
     const sourcesContainer: HTMLDivElement | null = document.querySelector('.sources__container');
     sourcesContainer?.querySelectorAll('.source__item').forEach((el) => el.remove());
+    if (!data.length) {
+      const noItemsElem: HTMLElement = document.createElement('p');
+      noItemsElem.classList.add('source__item', 'source__item--default');
+      noItemsElem.textContent = 'No items found';
+      sourcesContainer?.append(noItemsElem);
+      return;
+    }
 
     data.forEach((item: Source) => {
       if (sourceItemTemp) {

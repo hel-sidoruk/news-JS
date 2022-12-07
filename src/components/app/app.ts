@@ -14,11 +14,16 @@ class App {
   start() {
     let timer: ReturnType<typeof setTimeout>;
     const searchInput = document.getElementById('search') as HTMLInputElement;
-    document.querySelector('.sources')?.addEventListener('click', (e) =>
+    document.querySelector('.sources')?.addEventListener('click', (e) => {
+      const element = e.target as HTMLElement;
+      console.log(element.classList);
+      if (!element.classList.contains('source__item')) return;
+      document.querySelector('.source__item--active')?.classList.remove('source__item--active');
+      element.classList.add('source__item--active');
       this.controller.getNews(e, (data) => {
         if (data) this.view.drawNews(data);
-      })
-    );
+      });
+    });
     searchInput.addEventListener('input', () => {
       clearTimeout(timer);
       timer = setTimeout(() => {
