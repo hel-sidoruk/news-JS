@@ -2,8 +2,20 @@ body {
     color: #fff;
     background: #17181c;
     font-family: sans-serif;
+    margin: 0;
+    min-width: 320px;
 }
-
+.site-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
+}
+.container {
+  max-width: 1200px;
+  padding: 0 10px;
+  margin: 0 auto;
+}
 header {
     padding: 10px 30px;
 }
@@ -13,23 +25,51 @@ header h1 {
     font-weight: 800;
 }
 
-footer {
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.footer {
+  padding: 20px 0;
 }
-footer .copyright {
-    font-size: 14px;
-    color: #333;
-    text-align: center;
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
-footer .copyright a {
+.footer .copyright {
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+}
+.footer .copyright a {
     color: #444;
 }
-footer .copyright a:hover {
+.footer .copyright a:hover {
     color: #555;
 }
-footer .copyright:before {
+.footer .copyright:before {
     content: '©';
+}
+.footer__info {
+  display: flex;
+  gap: 20px;
+  align-items: end;
+}
+.footer__info span {
+  font-size: 24px;
+}
+.footer__link {
+  font-size: 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 50px;
+  transition: all .3s ease-in-out;
+}
+.footer__link:hover {
+  filter: brightness(0.6);
+}
+.footer__link:first-child {
+  width: 50px;
+  background-image: url('./assets/github.svg');
+}
+.footer__link:nth-child(2) {
+  width: 134px;
+  background-image: url('./assets/rs-logo.svg');
 }
