@@ -35,6 +35,12 @@ class AppController extends AppLoader implements Controller {
       target = target.parentNode as HTMLElement;
     }
   }
+
+  getInitialNews(callback: cb) {
+    fetch('https://newsapi.org/v2/everything?apiKey=3429168172e54064b53d38cfce9b9c22&sources=abc-news')
+      .then((res) => res.json())
+      .then((data) => callback(data));
+  }
 }
 
 export default AppController;

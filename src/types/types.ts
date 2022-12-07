@@ -24,6 +24,7 @@ export interface ILoader {
 export interface Controller {
   getSources: (cb: cb) => void;
   getNews: (e: Event, cb: cb) => void;
+  getInitialNews: (cb: cb) => void;
 }
 
 export interface NewsItem {

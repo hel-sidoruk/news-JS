@@ -1,11 +1,16 @@
 .sources {
   position: fixed;
-  top: 10vh;
-  left: 15px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  padding: 15px;
+  background-color: #17181c;
+  z-index: 200;
+  padding-top: 70px;
 }
 .sources__container {
   width: 250px;
-  height: 82vh;
+  height: 86vh;
   overflow: auto;
   font: 300 1em 'Fira Sans', sans-serif;
   display: flex;
@@ -30,12 +35,11 @@
   width: 250px;
   display: block;
   position: absolute;
-  top: 0;
+  top: 20px;
   background-image: url('../../../assets/search-icon.svg');
   background-repeat: no-repeat;
   background-position: center right 5px;
   background-size: 30px;
-  top: -50px;
   outline: none;
   transition: all .3s ease-in-out;
 }
@@ -54,7 +58,7 @@
   text-align: center;
 }
 .source__item:not(:last-child) {
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .source__item:hover,

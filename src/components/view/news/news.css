@@ -120,7 +120,11 @@
 .news__item:hover .news__meta-details {
     left: 0%;
 }
-
+@media (max-width: 1600px) {
+  .news {
+    padding-left: 280px;
+  }
+}
 @media (min-width: 640px) {
     .news__item {
         flex-direction: row;
