@@ -37,6 +37,10 @@ export interface NewsItem {
   urlToImage: string;
 }
 
+export interface View<T> {
+  draw: (arr: T[]) => void;
+}
+
 export interface Source {
   id: string;
   name: string;

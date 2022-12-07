@@ -1,9 +1,6 @@
-import { HtmlEl, NewsItem } from '../../../types/types';
+import { HtmlEl, NewsItem, View } from '../../../types/types';
+import Pagination from '../../utils/pagination';
 import './news.css';
-
-export interface View<T> {
-  draw: (arr: T[]) => void;
-}
 
 class News implements View<NewsItem> {
   draw(data: NewsItem[]): void {
@@ -12,6 +9,16 @@ class News implements View<NewsItem> {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const newsItemTemp: HTMLTemplateElement | null = document.querySelector('#newsItemTemp');
     const newsElement: HtmlEl = document.querySelector('.news');
+
+    const pagination = new Pagination(100, 10);
+    const handleClick = (e: Event) => {
+      console.log('click');
+      const element = e.target as HTMLElement;
+      if (!element.classList.contains('pagination__btn')) return;
+      const page = Number(element.textContent);
+      newsElement?.replaceChildren(pagination.pagesElement(page, handleClick));
+    };
+    const paginationEl = pagination.pagesElement(1, handleClick);
 
     news.forEach((item: NewsItem, idx) => {
       const newsClone = newsItemTemp?.content.cloneNode(true) as HTMLElement;
@@ -40,7 +47,8 @@ class News implements View<NewsItem> {
     });
 
     if (newsElement) newsElement.innerHTML = '';
-    newsElement?.appendChild(fragment);
+    newsElement?.append(fragment);
+    newsElement?.append(paginationEl);
   }
 }
 

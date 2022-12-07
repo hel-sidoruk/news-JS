@@ -17,7 +17,7 @@ class App {
     const burger = document.querySelector('.burger') as HTMLElement;
     const sources = document.querySelector('.sources') as HTMLElement;
 
-    document.querySelector('.sources')?.addEventListener('click', (e) => {
+    sources.addEventListener('click', (e) => {
       const element = e.target as HTMLElement;
       if (!element.classList.contains('source__item')) return;
       document.querySelector('.source__item--active')?.classList.remove('source__item--active');

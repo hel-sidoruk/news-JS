@@ -1,5 +1,5 @@
-import { ApiResponse, IAppView, NewsItem, Source } from '../../types/types';
-import News, { View } from './news/news';
+import { ApiResponse, IAppView, NewsItem, Source, View } from '../../types/types';
+import News from './news/news';
 import Sources from './sources/sources';
 
 export class AppView implements IAppView {

@@ -1,5 +1,4 @@
-import { Source } from '../../../types/types';
-import { View } from '../news/news';
+import { Source, View } from '../../../types/types';
 import './sources.css';
 
 class Sources implements View<Source> {
