@@ -37,9 +37,10 @@ class AppController extends AppLoader implements Controller {
   }
 
   getInitialNews(callback: CallBack) {
-    fetch('https://newsapi.org/v2/everything?apiKey=3429168172e54064b53d38cfce9b9c22&sources=abc-news')
+    fetch(`${this.baseLink}everything?apiKey=${this.options.apiKey}&sources=abc-news`)
       .then((res) => res.json())
-      .then((data) => callback(data));
+      .then((data) => callback(data))
+      .catch((err) => console.error(err));
   }
 }
 

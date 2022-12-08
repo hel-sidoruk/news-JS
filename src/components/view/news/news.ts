@@ -4,9 +4,9 @@ import './news.css';
 
 class News implements View<NewsItem> {
   constructor(
-    private newsData: NewsItem[] = [],
+    private newsData: NewsItem[] | [] = [],
     private page: number = 1,
-    private limit = 10,
+    private limit: number = 10,
     private newsContainer = document.querySelector('.news') as HTMLDivElement
   ) {}
 

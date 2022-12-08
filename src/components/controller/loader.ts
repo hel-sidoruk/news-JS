@@ -1,10 +1,10 @@
-import { CallBack, GetRespOptions, ILoader, Options, Resp } from '../../types/types';
+import { CallBack, RespOptions, ILoader, Options, Resp } from '../../types/types';
 
 class Loader implements ILoader {
   constructor(public baseLink: string, public options: Options) {}
 
   getResp(
-    { endpoint, options = {} }: GetRespOptions,
+    { endpoint, options = {} }: RespOptions,
     callback = () => {
       console.error('No callback for GET response');
     }
@@ -26,7 +26,7 @@ class Loader implements ILoader {
     const urlOptions: Options = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
-    Object.keys(urlOptions).forEach((key) => {
+    (Object.keys(urlOptions) as string[]).forEach((key) => {
       url += `${key}=${urlOptions[key as keyof Options]}&`;
     });
 

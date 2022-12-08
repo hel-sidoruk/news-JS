@@ -3,7 +3,7 @@ export type Options = {
   sources?: string;
 };
 export type CallBack = (data?: ApiResponse) => void;
-export type GetRespOptions = {
+export type RespOptions = {
   endpoint: string;
   options?: Options;
 };
@@ -14,7 +14,7 @@ export interface Resp extends Response {
 }
 
 export interface ILoader {
-  getResp: (obj: GetRespOptions, callback: CallBack) => void;
+  getResp: (obj: RespOptions, callback: CallBack) => void;
   errorHandler: (res: Resp) => Resp;
   makeUrl: (options: Options, endpoint: string) => string;
   load: (method: string, endpoint: string, callback: CallBack, options: Options) => void;
