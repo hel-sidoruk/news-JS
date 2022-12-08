@@ -25,11 +25,15 @@ class App {
       this.controller.getNews(e, (data) => data && this.view.drawNews(data));
     });
 
-    searchInput.addEventListener('input', () => {
+    searchInput.addEventListener('input', (e) => {
+      e.stopPropagation();
       clearTimeout(timer);
       timer = setTimeout(() => {
         this.view.filterSources(searchInput.value.trim().toLowerCase());
       }, 500);
+    });
+    searchInput.addEventListener('click', (e) => {
+      e.stopPropagation();
     });
 
     burger.addEventListener('click', (e) => {
