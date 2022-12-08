@@ -5,7 +5,7 @@ import Sources from './sources/sources';
 class AppView implements IAppView {
   private news: View<NewsItem>;
   private sources: View<Source>;
-  private sourcesData: Source[] | [];
+  private sourcesData: Readonly<Source>[] | [];
 
   constructor() {
     this.news = new News();
@@ -14,12 +14,12 @@ class AppView implements IAppView {
   }
 
   drawNews(data?: ApiResponse) {
-    const values = data?.articles ? data?.articles : [];
+    const values: Readonly<NewsItem>[] | [] = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }
 
   drawSources(data?: ApiResponse) {
-    const values = data?.sources ? data?.sources : [];
+    const values: Readonly<Source>[] | [] = data?.sources ? data?.sources : [];
     this.sourcesData = values;
     this.sources.draw(values);
   }

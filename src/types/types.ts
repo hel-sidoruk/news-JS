@@ -37,7 +37,7 @@ export interface NewsItem {
 }
 
 export interface View<T> {
-  draw: (arr: T[]) => void;
+  draw: (arr: Readonly<T>[]) => void;
   render?: () => void;
 }
 
@@ -47,8 +47,8 @@ export interface Source {
 }
 
 export interface ApiResponse {
-  articles?: NewsItem[];
-  sources?: Source[];
+  articles?: Readonly<NewsItem>[];
+  sources?: Readonly<Source>[];
 }
 
 export interface IAppView {

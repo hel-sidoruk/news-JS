@@ -2,7 +2,7 @@ import { Source, View } from '../../../types/types';
 import './sources.css';
 
 class Sources implements View<Source> {
-  draw(data: Source[]): void {
+  draw(data: Readonly<Source>[]): void {
     const fragment: DocumentFragment = document.createDocumentFragment();
     const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
     const sourcesContainer = document.querySelector('.sources__container') as HTMLDivElement;

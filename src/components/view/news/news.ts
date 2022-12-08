@@ -4,13 +4,13 @@ import './news.css';
 
 class News implements View<NewsItem> {
   constructor(
-    private newsData: NewsItem[] | [] = [],
+    private newsData: Readonly<NewsItem>[] | [] = [],
     private page: number = 1,
     private limit: number = 10,
     private newsContainer = document.querySelector('.news') as HTMLDivElement
   ) {}
 
-  draw(data: NewsItem[]): void {
+  draw(data: Readonly<NewsItem>[]): void {
     this.newsData = data;
     if (this.newsData.length) {
       const pagination: Pagination = new Pagination(this.newsData.length, this.limit);
@@ -34,7 +34,7 @@ class News implements View<NewsItem> {
 
   render(): void {
     const coef: number = this.limit * (this.page - 1);
-    const news: NewsItem[] =
+    const news: Readonly<NewsItem>[] =
       this.newsData.length >= this.limit
         ? this.newsData.filter((_, idx) => idx >= 0 + coef && idx < 10 + coef)
         : this.newsData;
