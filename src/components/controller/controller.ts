@@ -1,8 +1,8 @@
-import { cb, Controller } from '../../types/types';
+import { CallBack, Controller } from '../../types/types';
 import AppLoader from './appLoader';
 
 class AppController extends AppLoader implements Controller {
-  getSources(callback: cb) {
+  getSources(callback: CallBack) {
     super.getResp(
       {
         endpoint: 'sources',
@@ -11,7 +11,7 @@ class AppController extends AppLoader implements Controller {
     );
   }
 
-  getNews(e: Event, callback: cb) {
+  getNews(e: Event, callback: CallBack) {
     let target = e.target as HTMLElement;
     const newsContainer = e.currentTarget as HTMLElement;
 
@@ -36,7 +36,7 @@ class AppController extends AppLoader implements Controller {
     }
   }
 
-  getInitialNews(callback: cb) {
+  getInitialNews(callback: CallBack) {
     fetch('https://newsapi.org/v2/everything?apiKey=3429168172e54064b53d38cfce9b9c22&sources=abc-news')
       .then((res) => res.json())
       .then((data) => callback(data));

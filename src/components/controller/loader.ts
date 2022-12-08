@@ -1,4 +1,4 @@
-import { cb, GetRespOptions, ILoader, Options, Resp } from '../../types/types';
+import { CallBack, GetRespOptions, ILoader, Options, Resp } from '../../types/types';
 
 class Loader implements ILoader {
   constructor(public baseLink: string, public options: Options) {}
@@ -33,7 +33,7 @@ class Loader implements ILoader {
     return url.slice(0, -1);
   }
 
-  load(method: string, endpoint: string, callback: cb, options = {}) {
+  load(method: string, endpoint: string, callback: CallBack, options = {}) {
     fetch(this.makeUrl(options, endpoint), { method })
       .then(this.errorHandler)
       .then((res) => res.json())

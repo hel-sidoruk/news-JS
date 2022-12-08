@@ -1,6 +1,6 @@
 import { Controller, IAppView } from '../../types/types';
 import AppController from '../controller/controller';
-import { AppView } from '../view/appView';
+import AppView from '../view/appView';
 
 class App {
   private controller: Controller;
@@ -14,13 +14,13 @@ class App {
   start() {
     let timer: ReturnType<typeof setTimeout>;
     const searchInput = document.getElementById('search') as HTMLInputElement;
-    const burger = document.querySelector('.burger') as HTMLElement;
+    const burger = document.querySelector('.burger') as HTMLDivElement;
     const sources = document.querySelector('.sources') as HTMLElement;
 
     sources.addEventListener('click', (e) => {
       const element = e.target as HTMLElement;
       if (!element.classList.contains('source__item')) return;
-      document.querySelector('.source__item--active')?.classList.remove('source__item--active');
+      (document.querySelector('.source__item--active') as HTMLDivElement).classList.remove('source__item--active');
       element.classList.add('source__item--active');
       this.controller.getNews(e, (data) => data && this.view.drawNews(data));
     });
@@ -47,7 +47,7 @@ class App {
     this.controller.getInitialNews((data) => {
       if (data) {
         this.view.drawNews(data);
-        document.querySelector('.source__item')?.classList.add('source__item--active');
+        (document.querySelector('.source__item') as HTMLDivElement).classList.add('source__item--active');
       }
     });
   }

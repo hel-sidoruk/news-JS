@@ -2,7 +2,7 @@ import { ApiResponse, IAppView, NewsItem, Source, View } from '../../types/types
 import News from './news/news';
 import Sources from './sources/sources';
 
-export class AppView implements IAppView {
+class AppView implements IAppView {
   private news: View<NewsItem>;
   private sources: View<Source>;
   private sourcesData: Source[] | [];

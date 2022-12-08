@@ -1,9 +1,8 @@
-export type HtmlEl = HTMLElement | null;
 export type Options = {
   apiKey?: string;
   sources?: string;
 };
-export type cb = (data?: ApiResponse) => void;
+export type CallBack = (data?: ApiResponse) => void;
 export type GetRespOptions = {
   endpoint: string;
   options?: Options;
@@ -15,16 +14,16 @@ export interface Resp extends Response {
 }
 
 export interface ILoader {
-  getResp: (obj: GetRespOptions, callback: cb) => void;
+  getResp: (obj: GetRespOptions, callback: CallBack) => void;
   errorHandler: (res: Resp) => Resp;
   makeUrl: (options: Options, endpoint: string) => string;
-  load: (method: string, endpoint: string, callback: cb, options: Options) => void;
+  load: (method: string, endpoint: string, callback: CallBack, options: Options) => void;
 }
 
 export interface Controller {
-  getSources: (cb: cb) => void;
-  getNews: (e: Event, cb: cb) => void;
-  getInitialNews: (cb: cb) => void;
+  getSources: (cb: CallBack) => void;
+  getNews: (e: Event, cb: CallBack) => void;
+  getInitialNews: (cb: CallBack) => void;
 }
 
 export interface NewsItem {
@@ -39,6 +38,7 @@ export interface NewsItem {
 
 export interface View<T> {
   draw: (arr: T[]) => void;
+  render?: () => void;
 }
 
 export interface Source {
@@ -52,7 +52,7 @@ export interface ApiResponse {
 }
 
 export interface IAppView {
-  drawNews: cb;
-  drawSources: cb;
+  drawNews: CallBack;
+  drawSources: CallBack;
   filterSources: (s: string) => void;
 }
