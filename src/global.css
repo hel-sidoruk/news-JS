@@ -127,18 +127,7 @@ body {
     bottom: 0;
   }
   .burger--active {
-    transform: translateX(270px);
-  }
-  .burger--active .burger__line:nth-child(2) {
-    display: none;
-  }
-  .burger--active .burger__line:first-child {
-    transform: rotate(45deg);
-    top: 50%;
-  }
-  .burger--active .burger__line:last-child {
-    transform: rotate(-45deg);
-    top: 50%;
+    opacity: 0;
   }
 }
 @media (max-width: 730px) {

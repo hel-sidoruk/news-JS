@@ -64,3 +64,12 @@
 .dots--active {
   display: inline-block;
 }
+@media (max-width: 360px) {
+  .pagination {
+    gap: 8px;
+  }
+  .pagination__btn {
+    width: 45px;
+    height: 45px;
+  }
+}

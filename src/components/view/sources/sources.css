@@ -46,6 +46,9 @@
 .sources__search:focus {
   border-color: #30c5ff;
 }
+.cross {
+  display: none;
+}
 .source__item {
   background: none;
   border: 2px solid #30c5ff;
@@ -60,7 +63,6 @@
 .source__item:not(:last-child) {
   margin-bottom: 10px;
 }
-
 .source__item:hover,
 .source__item:focus {
     border-color: #3fcc59;
@@ -88,5 +90,38 @@
   }
   .sources--active {
     transform: translateX(0);
+  }
+  .cross {
+    width: 45px;
+    height: 30px;
+    position: absolute;
+    right: -60px;
+    top: 45px;
+    display: block;
+    opacity: 0;
+    transition: all .3s ease-in-out;
+  }
+  .sources--active .cross {
+    opacity: 1;
+  }
+  .cross__line {
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background-color: #fff;
+  }
+  .cross__line:first-child {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  .cross__line:last-child {
+    transform: rotate(-45deg);
+    top: 50%;
+  }
+}
+@media (max-width: 400px) {
+  .cross {
+    width: 35px;
+    height: 25px;
   }
 }
