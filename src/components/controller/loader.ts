@@ -1,7 +1,7 @@
 import { CallBack, RespOptions, ILoader, Options, Resp } from '../../types/types';
 
 class Loader implements ILoader {
-  constructor(public baseLink: string, public options: Options) {}
+  constructor(public baseLink: string, public options: Partial<Options>) {}
 
   getResp(
     { endpoint, options = {} }: RespOptions,
@@ -23,7 +23,7 @@ class Loader implements ILoader {
   }
 
   makeUrl(options: Partial<Options>, endpoint: string): string {
-    const urlOptions: Options = { ...this.options, ...options };
+    const urlOptions: Partial<Options> = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
     (Object.keys(urlOptions) as string[]).forEach((key) => {

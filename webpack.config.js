@@ -13,13 +13,20 @@ const baseConfig = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.(png|svg)$/i,
+        test: /\.(png|svg|woff2)$/i,
         type: 'asset/resource',
       },
       {
         test: /\.ts$/,
         use: 'ts-loader',
         exclude: /node_modules/,
+      },
+      {
+        test: /\.mp4$/,
+        type: 'asset/resource',
+        generator: {
+          filename: '[name][ext]',
+        },
       },
     ],
   },

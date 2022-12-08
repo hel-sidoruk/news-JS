@@ -51,7 +51,8 @@ class App {
     this.controller.getInitialNews((data) => {
       if (data) {
         this.view.drawNews(data);
-        (document.querySelector('.source__item') as HTMLDivElement).classList.add('source__item--active');
+        const item: HTMLDivElement | null = document.querySelector('.source__item');
+        if (item) item.classList.add('source__item--active');
       }
     });
   }
