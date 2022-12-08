@@ -1,11 +1,11 @@
 export type Options = {
-  apiKey?: string;
-  sources?: string;
+  apiKey: string;
+  sources: string;
 };
 export type CallBack = (data?: ApiResponse) => void;
 export type RespOptions = {
   endpoint: string;
-  options?: Options;
+  options?: Partial<Options>;
 };
 export interface Resp extends Response {
   status: number;
@@ -15,9 +15,9 @@ export interface Resp extends Response {
 
 export interface ILoader {
   getResp: (obj: RespOptions, callback: CallBack) => void;
-  errorHandler: (res: Resp) => Resp;
-  makeUrl: (options: Options, endpoint: string) => string;
-  load: (method: string, endpoint: string, callback: CallBack, options: Options) => void;
+  errorHandler: (res: Readonly<Resp>) => Readonly<Resp>;
+  makeUrl: (options: Partial<Options>, endpoint: string) => string;
+  load: (method: string, endpoint: string, callback: CallBack, options: Partial<Options>) => void;
 }
 
 export interface Controller {
@@ -29,7 +29,7 @@ export interface Controller {
 export interface NewsItem {
   title: string;
   description: string;
-  source: Source;
+  source: Readonly<Source>;
   publishedAt: string;
   author: string;
   url: string;
@@ -47,8 +47,8 @@ export interface Source {
 }
 
 export interface ApiResponse {
-  articles?: Readonly<NewsItem>[];
-  sources?: Readonly<Source>[];
+  articles: Readonly<NewsItem>[];
+  sources: Readonly<Source>[];
 }
 
 export interface IAppView {

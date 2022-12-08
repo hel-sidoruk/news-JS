@@ -13,12 +13,12 @@ class AppView implements IAppView {
     this.sourcesData = [];
   }
 
-  drawNews(data?: ApiResponse) {
+  drawNews(data?: Pick<ApiResponse, 'articles'>) {
     const values: Readonly<NewsItem>[] | [] = data?.articles ? data?.articles : [];
     this.news.draw(values);
   }
 
-  drawSources(data?: ApiResponse) {
+  drawSources(data?: Pick<ApiResponse, 'sources'>) {
     const values: Readonly<Source>[] | [] = data?.sources ? data?.sources : [];
     this.sourcesData = values;
     this.sources.draw(values);

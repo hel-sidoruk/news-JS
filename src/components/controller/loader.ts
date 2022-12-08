@@ -12,7 +12,7 @@ class Loader implements ILoader {
     this.load('GET', endpoint, callback, options);
   }
 
-  errorHandler(res: Resp): Resp {
+  errorHandler(res: Readonly<Resp>): Readonly<Resp> {
     if (!res.ok) {
       if (res.status === 401 || res.status === 404)
         console.log(`Sorry, but there is ${res.status} error: ${res.statusText}`);
@@ -22,7 +22,7 @@ class Loader implements ILoader {
     return res;
   }
 
-  makeUrl(options: Options, endpoint: string): string {
+  makeUrl(options: Partial<Options>, endpoint: string): string {
     const urlOptions: Options = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
