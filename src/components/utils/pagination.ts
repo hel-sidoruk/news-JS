@@ -21,8 +21,7 @@ class Pagination implements IPagination {
   }
 
   setPages(num: number): [number, number, number] {
-    const number = num;
-    return [number - 1, number, number + 1];
+    return [num - 1, num, num + 1];
   }
 
   pages(page: number): number[] {
