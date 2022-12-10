@@ -7,17 +7,46 @@
         <title>NewsPortal</title>
     </head>
     <body>
-        <header>
-            <h1>News Portal</h1>
+      <video class="video" autoplay muted loop>
+        <source src="./background.mp4" type="video/mp4">
+      </video>
+        <div class="site-container">
+          <header class="header">
+            <div class="burger">
+              <span class="burger__line"></span>
+              <span class="burger__line"></span>
+              <span class="burger__line"></span>
+            </div>
+            <h1 class="header__title">News Portal</h1>
         </header>
-        <main>
-            <div class="sources buttons"></div>
-            <div class="news"></div>
+        <main class="main">
+          <aside class="sources">
+            <div class="cross">
+              <span class="cross__line"></span>
+              <span class="cross__line"></span>
+            </div>
+            <input class="sources__search" id="search" placeholder="What are you looking for?">
+            <div class="sources__container buttons"></div>
+          </aside>
+          <div class="news">
+            <div class="news__content"></div>
+          </div>
         </main>
-        <footer>
+        <footer class="footer">
+          <div class="container footer__container">
             <p class="copyright">
-                Copyright <a href="https://newsapi.org">NewsAPI</a>
+              Copyright <a href="https://newsapi.org">NewsAPI</a>
             </p>
+            <div class="footer__info">
+              <a class="footer__link" href="https://github.com/hel-sidoruk/">
+                Github
+              </a>
+              <a class="footer__link" href="https://rs.school/js/">
+                Course
+              </a>
+              <span>2022</span>
+            </div>
+          </div>
         </footer>
 
         <template id="sourceItemTemp">
@@ -45,7 +74,7 @@
                 </div>
             </div>
         </template>
-
+        </div>
         <script src="./index.js"></script>
     </body>
 </html>

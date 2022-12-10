@@ -120,6 +120,16 @@
 .news__item:hover .news__meta-details {
     left: 0%;
 }
+@media (max-width: 1600px) {
+  .news {
+    padding-left: 280px;
+  }
+}
+@media (max-width: 1024px) {
+  .news {
+    padding: 0 15px;
+  }
+}
 
 @media (min-width: 640px) {
     .news__item {

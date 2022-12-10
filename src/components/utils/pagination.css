@@ -1,0 +1,77 @@
+.pagination {
+  display: flex;
+  margin-top: 30px;
+  gap: 15px;
+  justify-content: center;
+}
+
+.pagination__btn {
+  background-color: transparent;
+  color: #fff;
+  font-size: 18px;
+  padding: 0;
+  border: 2px solid #30c5ff;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 15px;
+  transition: all .3s ease-in-out;
+  box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.6);
+}
+.pagination__btn:hover {
+  background-color: #30c5ff;
+  color: #111;
+  font-weight: 700;
+}
+.pagination__btn:first-child {
+  order: 1;
+}
+.pagination__btn:nth-child(2) {
+  order: 3;
+}
+.pagination__btn:nth-child(3) {
+  order: 4;
+}
+.pagination__btn:nth-child(4) {
+  order: 5;
+}
+.pagination__btn:nth-child(5) {
+  order: 7;
+}
+.pagination__btn--current {
+  pointer-events: none;
+  background-color: #30c5ff;
+  color: #111;
+  box-shadow: none;
+  font-weight: 700;
+}
+.dots {
+  font-size: 24px;
+  display: none;
+  text-align: center;
+  cursor: default;
+  transform: translateY(10px);
+  color: #fff;
+  letter-spacing: 2px;
+}
+.dots:nth-child(6) {
+  order: 2;
+}
+.dots:nth-child(7) {
+  order: 6;
+}
+.dots--active {
+  display: inline-block;
+}
+@media (max-width: 360px) {
+  .pagination {
+    gap: 8px;
+  }
+  .pagination__btn {
+    width: 45px;
+    height: 45px;
+  }
+}
